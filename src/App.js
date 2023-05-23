@@ -77,7 +77,6 @@ function App() {
           <div className="App">
       <header className="App-header">
         <Banner/>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <h1>
           Combination GuessR
         </h1>
@@ -91,7 +90,7 @@ function App() {
           <p>You will be guessing: {message}</p>
           <br/>
         </form>
-        <input style={{fontSize: 50, padding: -10}}type="submit" onClick={handleInput} />
+        <input style={{fontSize: 50, padding: -10}}type="submit" onClick={handleInput} value="Submit"/>
 
         {buttonClicked && (
         <Popup isOpen={popUpIsOpen} onClose={handlePopup} isCorrect={isCorrect} />
