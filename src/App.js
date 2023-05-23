@@ -91,10 +91,10 @@ function App() {
           <input class="textBoxId" type="tel" style={{fontSize: 50}} id="guess" name="fname" maxLength={4} onChange={handleChange}/>
           <br/>
           <p>You will be guessing: {message}</p>
-          <br/>
+          <p>Number of tries: {attempts}</p>
+           {/* spacing is odd here, cant add anymore elements otherwise black bars at bottom will show up, will need to be fixed later */}
         </form>
         <input style={{fontSize: 50, padding: -10}}type="submit" onClick={handleInput} value="Submit"/>
-        <p>Number of tries: {attempts}</p>
         {buttonClicked && (
         <Popup isOpen={popUpIsOpen} onClose={handlePopup} isCorrect={isCorrect} attempts={attempts} />
       )}
