@@ -71,7 +71,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+      
+
+    <div className='app-background'>
+          <div className="App">
       <header className="App-header">
         <Banner/>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
@@ -95,6 +98,7 @@ function App() {
       )}
 
       </header>
+    </div>
     </div>
   );
 }
