@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
-function Popup({ isOpen, onClose, isCorrect}) {
+function Popup({ isOpen, onClose, isCorrect, attempts}) {
     return ( isCorrect ? 
         <Modal 
         isOpen={isOpen} 
@@ -22,9 +22,8 @@ function Popup({ isOpen, onClose, isCorrect}) {
           }}
         >
             <h2>Correct! 😄</h2>
-            <br/>
             <p>Thanks for playing!</p>
-            <br/>
+            <p>You got it in {attempts} attempt(s)</p> 
             <button onClick={onClose}>Close</button>
         </Modal> 
         :
@@ -47,7 +46,6 @@ function Popup({ isOpen, onClose, isCorrect}) {
             <h2>Incorrect! 😢</h2>
             <br/>
             <p>Try again</p>
-            <br/>
             <button onClick={onClose}>Close</button>
         </Modal>
         

@@ -44,6 +44,8 @@ function App() {
 
   const [buttonClicked, setButtonClicked] = useState(false); // New state variable
 
+  const [attempts, setAttemptsCount] = useState(0);
+
   const handleChange = event => {
     setMessage(event.target.value)
   }
@@ -61,7 +63,8 @@ function App() {
       setFlagToCorrect(false);
     }
     
-    setButtonClicked(true); // Update buttonClicked state
+    setButtonClicked(true); // Update buttonClicked state, enables modal to popup
+    setAttemptsCount(attempts + 1); // Set the number of tries after button press
     handlePopup();
   }
 
@@ -91,9 +94,9 @@ function App() {
           <br/>
         </form>
         <input style={{fontSize: 50, padding: -10}}type="submit" onClick={handleInput} value="Submit"/>
-
+        <p>Number of tries: {attempts}</p>
         {buttonClicked && (
-        <Popup isOpen={popUpIsOpen} onClose={handlePopup} isCorrect={isCorrect} />
+        <Popup isOpen={popUpIsOpen} onClose={handlePopup} isCorrect={isCorrect} attempts={attempts} />
       )}
 
       </header>

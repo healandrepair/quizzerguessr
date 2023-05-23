@@ -35,13 +35,13 @@ body{
 
 
 @-webkit-keyframes slidein {
-  from {background-position: 100vw 0px; background-size:cover; }
-  to {background-position: -100vw 0px;background-size:cover;}
+  from {background-position: 120vw 0px; background-size:cover; }
+  to {background-position: -120vw 0px;background-size:cover;}
   }
   
   @keyframes slidein {
-  from {background-position: 100vw 0px;background-size:cover; }
-  to {background-position: -100vw 0px;background-size:cover;}
+  from {background-position: 120vw 0px;background-size:cover; }
+  to {background-position: -120vw 0px;background-size:cover;}
   
   }
   
