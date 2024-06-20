@@ -1,3 +1,9 @@
+This is a originally quiz game that I originally made for the University of Auckland STEM expo where it was used as a game for students to be able to win prizes.
+Afterwards it was retro fitted with other fun questions. This was created in a couple hours, so apologies for the messy code.
+
+https://evans-quizzerguessr.netlify.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
