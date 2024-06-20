@@ -3,29 +3,25 @@ import './App.css';
 import Popup from './components/PopupModal';
 import Question from './components/Question';
 import React, {useEffect} from 'react'
-import Banner from './components/Banner';
 
-function CheckCombination(data, isFirstQ) {
+function CheckCombination(data, questionNumber) {
 
   /// This is a model that is a placeholder to add the answers in. 
-// This will (should) have security to prevent users from being able to read off the answers from the inspector. TO DO: Add an API that links and returns answers from a database
+// This should have sort of security to prevent users from being able to read off the answers from the inspector lol. TO DO: Add connect this to an API that will returns answers, thus the true answer is not stored in the frontend
 
   var answers = {
-    1: "6500",
-    2: "1965",
+    1: "fruit",
+    2: "china",
+    3: "koala",
+    4: "elephant"
   }
+
+  let answer = data.toString().toLowerCase();
 
   console.log(data);
 
-  if (isFirstQ === false) {
-    console.log(data);
-    return data === answers[2]
-  }
-
-  if (isFirstQ === true) {
-    return data === answers[1]
-  }
-  return false;
+  
+  return answer === answers[questionNumber].toLowerCase();
 }
 
 // From stackoverflow, https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
@@ -40,7 +36,7 @@ function App() {
 
   const [isCorrect, setFlagToCorrect] = useState(false);
 
-  const [isFirstQ, setToFirstQ] = useState(false);
+  const [questionNumber, setQuestionNumber] = useState(1);
 
   const [buttonClicked, setButtonClicked] = useState(false); // New state variable
 
@@ -55,7 +51,7 @@ function App() {
   }
 
   const handleInput = () => {
-    var isTrue = CheckCombination(message, isFirstQ);
+    var isTrue = CheckCombination(message, questionNumber);
     if (isTrue) {
       setFlagToCorrect(true);
     }
@@ -69,8 +65,8 @@ function App() {
   }
 
   useEffect(() => {
-    const randomValue = randomIntFromInterval(1, 2);
-    setToFirstQ(randomValue === 1);
+    const randomValue = randomIntFromInterval(1, 4);
+    setQuestionNumber(randomValue);
   }, []);
 
   return (
@@ -79,16 +75,15 @@ function App() {
     <div className='app-background'>
           <div className="App">
       <header className="App-header">
-        <Banner/>
         <h1>
-          Combination GuessR
+          Quizzer GuessR
         </h1>
 
-        <Question isFirstQ={isFirstQ}/>
+        <Question questionNumber={questionNumber}/>
         <form>
           <label style={{padding: 10}}>Enter a guess:</label>
           <br/>
-          <input class="textBoxId" type="tel" style={{fontSize: 50}} id="guess" name="fname" maxLength={4} onChange={handleChange}/>
+          <input class="textBoxId" type="text" style={{fontSize: 50}} id="guess" name="fname" maxLength={50} onChange={handleChange}/>
           <br/>
           <p>You will be guessing: {message}</p>
           <p>Number of tries: {attempts}</p>
