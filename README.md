@@ -1,5 +1,5 @@
 This is a originally quiz game that I made for the University of Auckland STEM expo where it was used as a game for students to be able to win prizes.
-Afterwards it was retro fitted with other fun questions. This was one of my first React projects and was created in a couple hours, so apologies for the messy / strange code.
+Afterwards it was retro fitted with other fun questions. This was one of my first React projects and was created in a couple hours, so apologies for the messy code.
 
 https://evans-quizzerguessr.netlify.app/
 
